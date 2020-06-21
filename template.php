@@ -5,20 +5,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title; ?></title>
+    <style>
+        .header {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .d-column {
+            flex-direction: column;
+        }
+
+        .d-inline-flex {
+            display: inline-flex;
+        }
+
+        .d-block {
+            display: block;
+        }
+
+        h5 {
+            margin: 0;
+        }
+
+        table {
+            border-radius: 13px;
+            background-color: hsl(0, 0%, 96%);
+            color: black;
+        }
+
+        thead {
+            /* border-radius: 10px; */
+            background-color: #d7d7d7;
+        }
+
+        table thead th {
+            padding: 5px 0px;
+            border-bottom: 1px solid #cfcfcf;
+        }
+
+        table tbody th {
+            padding: 5px 0px;
+            border-bottom: 1px solid #cfcfcf;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .global-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 15px;
+            background-color: #80808033;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+
+        h5 {
+            margin: 0px
+        }
+    </style>
 </head>
 
 <body class="container">
-    <div class="row justify-content-betwen">
-        <div class="col">
-            <img src="http://34.75.209.144:3010/img/logo.png" alt="" width="300">
-        </div>
-        <div class="col">
-            <img src="http://34.75.209.144:3010/img/right-logo.png" alt="" width="300">
-        </div>
+    <div class="header">
+        <img src="http://34.75.209.144:3010/img/logo.png" alt="" width="300">
+        <img src="http://34.75.209.144:3010/img/right-logo.png" alt="" width="300">
     </div>
-    <div class="row justify-content-between">
-        <div class="col">
+    <div class="header">
+        <div class="d-block">
+            <?php echo $barcode; ?>
+        </div>
+        <div class="d-block">
             <h5><?php echo $client["names"] ?></h5>
+            <h5>Código de factura: <strong><?php echo $charge["charge_number"] ?></strong></h5>
             <h5>Fecha inicial: <?php echo $charge["initial_date"] ?></h5>
             <h5>Fecha final: <?php echo $charge["final_date"] ?></h5>
             <h5>Documento: <?php echo $client["dni"] ?></h5>
@@ -27,9 +96,6 @@
             <h5>Barrio: <?php echo $client["neighborhood"] ?></h5>
             <h5>Estrato: <?php echo $client["stratum_name"] ?></h5>
             <h5>Estado: <?php echo $charge["payed"] ? "Pagada" : "Sin pagar" ?> </h5>
-        </div>
-        <div class="col">
-            <?php echo $barcode; ?>
         </div>
     </div>
     <?php if (!empty($payments)) : ?>
@@ -124,14 +190,9 @@
         </table>
     </div>
     <br>
-    <div class="row justify-content-between">
-        <div></div>
-        <div class="card">
-            <div class="card-body">
-                <h1>VALOR A PAGAR</h1>
-                <h1>$<?php echo $globalTotalToPay; ?></h1>
-            </div>
-        </div>
+    <div class="global-total">
+        <strong>VALOR A PAGAR</strong>
+        <strong>$<?php echo $globalTotalToPay; ?></strong>
     </div>
     <img src="http://34.75.209.144:3010/img/footer.png" alt="" width="300" style="margin-top:10px;" />
 </body>

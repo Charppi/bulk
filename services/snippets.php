@@ -12,7 +12,7 @@ class Snippets
         $totalToPay = 0;
 
         $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
-        $barcode = '<img width="300" src="data:image/png;base64,' . base64_encode($generator->getBarcode($charge["charge_number"], $generator::TYPE_CODE_128)) . '">';
+        $barcode = '<img style="float:left;" width="300" src="data:image/png;base64,' . base64_encode($generator->getBarcode($charge["charge_number"], $generator::TYPE_CODE_128)) . '">';
 
 
         foreach ($details as $k => $detail) {
@@ -38,7 +38,7 @@ class Snippets
         if (!empty($payments)) {
             foreach ($payments as $j => $payment) {
                 $dt = new \Moment\Moment($payment["date"]);
-                $previousCharge[$i]["initial_date"] = $i_d->format('lll', new \Moment\CustomFormats\MomentJs());
+                $previousCharge[$i]["initial_date"] = $dt->format('lll', new \Moment\CustomFormats\MomentJs());
                 $payments[$j]["date "] = $dt->format('lll', new \Moment\CustomFormats\MomentJs());
             }
         }
