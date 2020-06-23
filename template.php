@@ -177,7 +177,7 @@
                         <td><?php echo $detail["name"]; ?></td>
                         <td><?php echo $detail["subsidy"]; ?></td>
                         <td><?php echo $detail["price"]; ?></td>
-                        <td><?php echo $valorAPagar; ?></td>
+                        <td><?php echo $detail["valorAPagar"]; ?></td>
                     </tr>
                 <?php endforeach; ?>
                 <tr>

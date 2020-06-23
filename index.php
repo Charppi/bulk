@@ -21,6 +21,7 @@ $distinctCharges = $Charges->getDistinctCharges();
 
 foreach ($distinctCharges as $k => $charge) {
     $client = $Charges->getClientsBy($charge["client_id"]); //Datos del cliente
+    if ($client["stratum_id"] == 9) continue;
     $payments = $Charges->getPaymentByChargeId($charge["id"]); //Pagos y abonos de la factura selecionada
     $previousCharges = $Charges->getDistinctNotPayedCharges($charge["client_id"], $charge["id"]); //Facturas anteriores con saldos
     $details = $Charges->getChargeDetails($charge["id"]);
@@ -35,6 +36,8 @@ foreach ($distinctCharges as $k => $charge) {
     $mpdf->SetDisplayMode('fullpage');
     $mpdf->WriteHTML($html);
     $mpdf->AddPage();
+
+    // if ($k == 20) break;
 }
 
 $mpdf->Output('bulk.pdf', 'I');

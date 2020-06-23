@@ -6,7 +6,7 @@ class Connection
     public function __construct()
     {
         try {
-            $pdo = new PDO('pgsql:host=34.75.209.144;dbname=recaudosoft', 'api', '6U0icL%S!!$8b-z');
+            $pdo = new PDO('pgsql:host=35.190.153.224;dbname=recaudosoft', 'api', '6U0icL%S!!$8b-z');
             $this->pdo = $pdo;
         } catch (\Throwable $th) {
             throw $th;
