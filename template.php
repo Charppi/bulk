@@ -78,8 +78,8 @@
 
 <body class="container">
     <div class="header">
-        <img src="http://34.75.209.144:3010/img/logo.png" alt="" width="300">
-        <img src="http://34.75.209.144:3010/img/right-logo.png" alt="" width="300">
+        <img src="http://35.190.153.224:3010/img/logo.png" alt="" width="300">
+        <img src="http://35.190.153.224:3010/img/right-logo.png" alt="" width="300">
     </div>
     <div class="header">
         <div class="d-block">
@@ -194,7 +194,7 @@
         <strong>VALOR A PAGAR</strong>
         <strong>$<?php echo $globalTotalToPay; ?></strong>
     </div>
-    <img src="http://34.75.209.144:3010/img/footer.png" alt="" width="300" style="margin-top:10px;" />
+    <img src="http://35.190.153.224:3010/img/footer.png" alt="" width="300" style="margin-top:10px;" />
 </body>
 
 </html>
