@@ -29,7 +29,6 @@ foreach ($distinctCharges as $k => $charge) {
 
     $mpdf->SetProtection(array('print'));
     $mpdf->SetTitle("Facturas bulk");
-    $mpdf->SetWatermarkText("SIN PAGAR");
     $mpdf->showWatermarkText = true;
     $mpdf->watermark_font = 'DejaVuSansCondensed';
     $mpdf->watermarkTextAlpha = 0.1;
