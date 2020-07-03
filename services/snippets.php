@@ -5,7 +5,7 @@ require __DIR__ . '/../vendor/autoload.php';
 
 class Snippets
 {
-    public function main(array $details, array $previousCharges, array $payments, array $charge, array $client)
+    public function main(array $details, array $previousCharges, array $payments, array $charge, array $client, array $services)
     {
         $totalSubsidy = 0;
         $totalUnitary = 0;
@@ -15,14 +15,25 @@ class Snippets
         $barcode = '<img style="float:left;" width="300" src="data:image/png;base64,' . base64_encode($generator->getBarcode($charge["charge_number"], $generator::TYPE_CODE_128)) . '">';
 
 
-        foreach ($details as $k => $detail) {
-            $valorAPagar = floatval($detail["price"] - $detail["subsidy"]);
-            $totalSubsidy =   $detail["subsidy"] + $totalSubsidy;
-            $totalUnitary =   $detail["price"] + $totalUnitary;
-            $totalToPay = $totalToPay + $valorAPagar;
-            $details[$k]['valorAPagar'] = $this->nf($valorAPagar);
-            $details[$k]['subsidy'] = $this->nf($detail["subsidy"]);
-            $details[$k]['price'] = $this->nf($detail["price"]);
+
+        foreach ($services as $o => $service) {
+            foreach ($details as $detail) {
+                if ($detail['id'] == $service['id']) {
+                    //Todos los servicios del estrato del usuario
+                    $valorAPagar = floatval($service["price"] - $service["subsidy"]);
+                    $totalSubsidy = $service["subsidy"] + $totalSubsidy;
+                    $totalUnitary = $service["price"] + $totalUnitary;
+                    $totalToPay = $totalToPay + $valorAPagar;
+                    $services[$o]['valorAPagar'] = $this->nf($valorAPagar);
+                    $services[$o]['subsidy'] = $this->nf($service["subsidy"]);
+                    $services[$o]['price'] = $this->nf($service["price"]);
+                    break;
+                } else {
+                    $services[$o]['valorAPagar'] = $this->nf(0);
+                    $services[$o]['subsidy'] = $this->nf(0);
+                    $services[$o]['price'] = $this->nf(0);
+                }
+            }
         }
         $globalTotalToPay = $totalToPay;
         if (!empty($previousCharges)) {

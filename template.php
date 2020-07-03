@@ -88,14 +88,15 @@
         <div class="d-block">
             <h5><?php echo $client["names"] ?></h5>
             <h5>Código de factura: <strong><?php echo $charge["charge_number"] ?></strong></h5>
-            <h5>Fecha inicial: <?php echo $charge["initial_date"] ?></h5>
-            <h5>Fecha final: <?php echo $charge["final_date"] ?></h5>
+            <h5>Fecha inicial: mar. 30 2020 5:00 AM</h5>
+            <h5>Fecha final: jun. 30 2020 5:00 AM</h5>
             <h5>Documento: <?php echo $client["dni"] ?></h5>
             <h5>Telefono: +57 <?php echo $client["phone"] ?></h5>
             <h5>Dirección: <?php echo $client["address"] ?></h5>
             <h5>Barrio: <?php echo $client["neighborhood"] ?></h5>
             <h5>Estrato: <?php echo $client["stratum_name"] ?></h5>
             <h5>Estado: <?php echo $charge["payed"] ? "Pagada" : "Sin pagar" ?> </h5>
+            <h5>Fecha límite de pago: jul. 13 2020 6:00 PM </h5>
         </div>
     </div>
     <?php if (!empty($payments)) : ?>
@@ -166,17 +167,17 @@
             <thead>
                 <tr>
                     <th>Servicio</th>
-                    <th>V. Subsidio</th>
                     <th>V. Unitario</th>
+                    <th>V. Subsidio</th>
                     <th>Total</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($details as $detail) : ?>
+                <?php foreach ($services as $detail) : ?>
                     <tr>
                         <td><?php echo $detail["name"]; ?></td>
-                        <td><?php echo $detail["subsidy"]; ?></td>
                         <td><?php echo $detail["price"]; ?></td>
+                        <td><?php echo $detail["subsidy"]; ?></td>
                         <td><?php echo $detail["valorAPagar"]; ?></td>
                     </tr>
                 <?php endforeach; ?>

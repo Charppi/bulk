@@ -25,7 +25,7 @@ class Connection
     {
         try {
             $result = $this->runQuery($query);
-            return $multiple ? $result->fetchAll() : $result->fetch();
+            return $multiple ? $result->fetchAll(PDO::FETCH_ASSOC) : $result->fetch(PDO::FETCH_ASSOC);
         } catch (\Throwable $th) {
             throw $th;
         }
