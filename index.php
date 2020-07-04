@@ -37,7 +37,7 @@ foreach ($distinctCharges as $k => $charge) {
     $mpdf->WriteHTML($html);
     $mpdf->AddPage();
 
-    // if ($k == 20) break;
+    if ($k == 20) break;
 }
 
 $mpdf->Output('bulk.pdf', 'I');
