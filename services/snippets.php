@@ -13,6 +13,7 @@ class Snippets
 
         $generator = new Picqer\Barcode\BarcodeGeneratorPNG();
         $barcode = '<img style="float:left;" width="300" src="data:image/png;base64,' . base64_encode($generator->getBarcode($charge["charge_number"], $generator::TYPE_CODE_128)) . '">';
+        $tirilla_barcode = '<img style="float:left;" width="150" src="data:image/png;base64,' . base64_encode($generator->getBarcode($charge["charge_number"], $generator::TYPE_CODE_128)) . '">';
 
 
 
