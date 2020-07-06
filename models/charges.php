@@ -4,7 +4,7 @@ class Charges extends Connection
 {
     public function getDistinctCharges()
     {
-        return $this->genericQuery("SELECT DISTINCT ON(charges.client_id) charges.*, clients.names, clients.address, clients.dni FROM charges INNER JOIN clients ON clients.id = charges.client_id ORDER BY charges.client_id,charges.final_date DESC;", true);
+        return $this->genericQuery("SELECT DISTINCT ON(charges.client_id) charges.*, clients.names, clients.address, clients.dni FROM charges INNER JOIN clients ON clients.id = charges.client_id ORDER BY charges.client_id,charges.final_date DESC OFFSET 500;", true);
     }
     public function getDistinctNotPayedCharges($client_id, $charge_id)
     {
