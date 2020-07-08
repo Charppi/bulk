@@ -19,11 +19,10 @@ function _pre($data)
     print_r($data);
     echo "</pre>";
 }
-
 $Charges = new Charges();
 $Snippets = new Snippets();
-$distinctCharges = $Charges->getDistinctCharges();
-
+$offset = $_REQUEST['offset'];
+$distinctCharges = $Charges->getDistinctCharges($offset);
 try {
     foreach ($distinctCharges as $k => $charge) {
         $client = $Charges->getClientsBy($charge["client_id"]); //Datos del cliente
@@ -42,7 +41,6 @@ try {
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->WriteHTML($html);
         $mpdf->AddPage();
-
         if ($k == 500) break;
     }
 } catch (\Throwable $th) {
