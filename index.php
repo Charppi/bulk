@@ -20,7 +20,7 @@ function _pre($data)
     echo "</pre>";
 }
 
-if ($_POST['offset']) {
+if (isset($_POST['offset'])) {
     $Charges = new Charges();
     $Snippets = new Snippets();
     $offset = $_REQUEST['offset'];
