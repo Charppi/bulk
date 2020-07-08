@@ -41,7 +41,7 @@ try {
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->WriteHTML($html);
         $mpdf->AddPage();
-        if ($k == 5) break;
+        if ($k == 500) break;
     }
 } catch (\Throwable $th) {
     return ['error' => 'Sucedió un error', 'payload' => $th];
