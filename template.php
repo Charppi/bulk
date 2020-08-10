@@ -205,8 +205,8 @@
                 <?php endforeach; ?>
                 <tr>
                     <td>TOTAL</td>
-                    <td><?php echo $totalSubsidy; ?></td>
                     <td><?php echo $totalUnitary; ?></td>
+                    <td><?php echo $totalSubsidy; ?></td>
                     <td><strong><?php echo $totalToPay; ?></strong></td>
                 </tr>
             </tbody>
