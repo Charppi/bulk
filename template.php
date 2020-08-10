@@ -233,9 +233,9 @@
         </div>
         <div class="col-print-6">
         <h5>Código de factura: <strong><?php echo $charge["charge_number"] ?></strong></h5>
-        <h5>Fecha inicial: mar. 30 2020 5:00 AM</h5>
-        <h5>Fecha final: jun. 30 2020 5:00 AM</h5>
-        <h5>Fecha límite de pago: jul. 13 2020 6:00 PM </h5>
+        <h5>Fecha inicial: <?php echo $charge["initial_date"] ?></h5>
+        <h5>Fecha final: <?php echo $charge["final_date"] ?></h5>
+        <h5>Fecha límite de pago: <?php echo date("Y")."-".date("m")."-"."13"; ?> </h5>
         <h2 style="padding:0px;">Total a pagar: <strong>$<?php echo $globalTotalToPay; ?></strong></h2>
         </div>
         <div class="col-print-6" style="margin-left:20px;">
