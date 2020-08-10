@@ -107,15 +107,15 @@
         <div class="d-block col-print-6">
             <h5><?php echo $client["names"] ?></h5>
             <h5>Código de factura: <strong><?php echo $charge["charge_number"] ?></strong></h5>
-            <h5>Fecha inicial: mar. 30 2020 5:00 AM</h5>
-            <h5>Fecha final: jun. 30 2020 5:00 AM</h5>
+            <h5>Fecha inicial: <?php echo $charge["initial_date"] ?></h5>
+            <h5>Fecha final: <?php echo $charge["final_date"] ?></h5>
             <h5>Documento: <?php echo $client["dni"] ?></h5>
             <h5>Telefono: +57 <?php echo $client["phone"] ?></h5>
             <h5>Dirección: <?php echo $client["address"] ?></h5>
             <h5>Barrio: <?php echo $client["neighborhood"] ?></h5>
             <h5>Estrato: <?php echo $client["stratum_name"] ?></h5>
             <h5>Estado: <?php echo $charge["payed"] ? "Pagada" : "Sin pagar" ?> </h5>
-            <h5>Fecha límite de pago: jul. 13 2020 6:00 PM </h5>
+            <h5>Fecha límite de pago: <?php echo date("Y")."-".date("m")."-"."13"; ?> </h5>
         </div>
         <div class="d-block col-print-6">
             <?php echo $barcode; ?>

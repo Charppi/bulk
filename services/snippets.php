@@ -54,8 +54,15 @@ class Snippets
                 $payments[$j]["date "] = $dt->format('lll', new \Moment\CustomFormats\MomentJs());
             }
         }
-        $charge_initial_date = new \Moment\Moment($charge["initial_date"]);
-        $charge["initial_date"] = $charge_initial_date->format('lll', new \Moment\CustomFormats\MomentJs());
+
+        if(!empty($previousCharges)){
+            $charge_initial_date = new \Moment\Moment($previousCharges[0]["initial_date"]);
+            $charge["initial_date"] = $charge_initial_date->format('lll', new \Moment\CustomFormats\MomentJs());    
+        }else{
+            $charge_initial_date = new \Moment\Moment($charge["initial_date"]);
+            $charge["initial_date"] = $charge_initial_date->format('lll', new \Moment\CustomFormats\MomentJs());    
+        }
+
 
         $charge_final_date = new \Moment\Moment($charge["final_date"]);
         $charge["final_date"] = $charge_final_date->format('lll', new \Moment\CustomFormats\MomentJs());
