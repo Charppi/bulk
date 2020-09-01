@@ -44,8 +44,8 @@ try {
         $mpdf->AddPage();
         if ($k == 500) break;
     }
+$mpdf->Output('bulk.pdf', 'I');
 } catch (\Throwable $th) {
-    return ['error' => 'Sucedió un error', 'payload' => $th];
+    _pre(['error' => 'Sucedió un error', 'payload' => $th]);
 }
 
-$mpdf->Output('bulk.pdf', 'I');
