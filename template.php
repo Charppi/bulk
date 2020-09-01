@@ -115,7 +115,7 @@
             <h5>Barrio: <?php echo $client["neighborhood"] ?></h5>
             <h5>Estrato: <?php echo $client["stratum_name"] ?></h5>
             <h5>Estado: <?php echo $charge["payed"] ? "Pagada" : "Sin pagar" ?> </h5>
-            <h5>Fecha límite de pago: <?php echo date("Y")."-".date("m")."-"."13"; ?> </h5>
+            <h5>Fecha límite de pago: <?php echo $charge["limit_date"]; ?> </h5>
         </div>
         <div class="d-block col-print-6">
             <?php echo $barcode; ?>

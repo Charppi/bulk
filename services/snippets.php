@@ -66,6 +66,8 @@ class Snippets
 
         $charge_final_date = new \Moment\Moment($charge["final_date"]);
         $charge["final_date"] = $charge_final_date->format('lll', new \Moment\CustomFormats\MomentJs());
+        $charge["limit_date"] = $charge_final_date->addDays(13)->format('lll', new \Moment\CustomFormats\MomentJs());
+
 
         $totalSubsidy = $this->nf($totalSubsidy);
         $totalUnitary = $this->nf($totalUnitary);

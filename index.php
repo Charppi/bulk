@@ -1,5 +1,6 @@
 <?php
 ini_set('max_execution_time', 0);
+date_default_timezone_set("America/Bogota");
 require 'models/charges.php';
 require 'services/snippets.php';
 require __DIR__ . '/vendor/autoload.php';
@@ -41,7 +42,7 @@ try {
         $mpdf->SetDisplayMode('fullpage');
         $mpdf->WriteHTML($html);
         $mpdf->AddPage();
-        if ($k == 500) break;
+        if ($k == 2) break;
     }
 } catch (\Throwable $th) {
     return ['error' => 'Sucedió un error', 'payload' => $th];
