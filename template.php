@@ -65,43 +65,93 @@
             display: flex;
             justify-content: space-between;
             padding: 15px;
-            border:2px solid #80808033;
+            border: 2px solid #80808033;
             margin-top: 10px;
             border-radius: 10px;
         }
-        .tirilla{
-            border:2px solid #80808033;
-            padding:20px;
-            bottom:50px;
-            position:absolute;
+
+        .tirilla {
+            border: 2px solid #80808033;
+            padding: 20px;
+            bottom: 50px;
+            position: absolute;
         }
-        .tirilla div{
-            padding-left:10px !important;
-            margin-left:10px!important;
+
+        .tirilla div {
+            padding-left: 10px !important;
+            margin-left: 10px !important;
         }
 
         h5 {
             margin: 0px
         }
-        .col-print-1 {width:8%;  float:left;}
-.col-print-2 {width:16%; float:left;}
-.col-print-3 {width:25%; float:left;}
-.col-print-4 {width:33%; float:left;}
-.col-print-5 {width:42%; float:left;}
-.col-print-6 {width:50%; float:left;}
-.col-print-7 {width:58%; float:left;}
-.col-print-8 {width:66%; float:left;}
-.col-print-9 {width:75%; float:left;}
-.col-print-10{width:83%; float:left;}
-.col-print-11{width:92%; float:left;}
-.col-print-12{width:100%; float:left;}
+
+        .col-print-1 {
+            width: 8%;
+            float: left;
+        }
+
+        .col-print-2 {
+            width: 16%;
+            float: left;
+        }
+
+        .col-print-3 {
+            width: 25%;
+            float: left;
+        }
+
+        .col-print-4 {
+            width: 33%;
+            float: left;
+        }
+
+        .col-print-5 {
+            width: 42%;
+            float: left;
+        }
+
+        .col-print-6 {
+            width: 50%;
+            float: left;
+        }
+
+        .col-print-7 {
+            width: 58%;
+            float: left;
+        }
+
+        .col-print-8 {
+            width: 66%;
+            float: left;
+        }
+
+        .col-print-9 {
+            width: 75%;
+            float: left;
+        }
+
+        .col-print-10 {
+            width: 83%;
+            float: left;
+        }
+
+        .col-print-11 {
+            width: 92%;
+            float: left;
+        }
+
+        .col-print-12 {
+            width: 100%;
+            float: left;
+        }
     </style>
 </head>
 
 <body class="container">
     <div class="header">
-        <img src="http://35.190.153.224:3010/img/logo.png" alt="" width="300">
-        <img src="http://35.190.153.224:3010/img/right-logo.png" alt="" width="300">
+        <img src="http://localhost/bulk/images/logo.png" alt="" width="300">
+        <img src="http://localhost/bulk/images/right-logo.png" alt="" width="300">
     </div>
     <div class="header">
         <div class="d-block col-print-6">
@@ -215,32 +265,34 @@
     <br>
     <div class="global-total d-flex">
         <div class="col-print-6">
-        <h2 style="padding:0px;">Total a pagar:</h2>
-        </div>
-        <div class="col-print-6"><h2>$<?php echo $globalTotalToPay; ?></h2></div>
-    </div>
-    <img src="http://35.190.153.224:3010/img/footer.png" alt="" width="300" style="margin-top:10px;" />
-    <br>
-    <div class="d-flex tirilla">
-    <br>
-        <div>
-            <div class="col-print-6">
-            <h5><?php echo $client["names"] ?></h5>
-            <h5>Documento: <?php echo $client["dni"] ?></h5>
-            <h5>Dirección: <?php echo $client["address"] ?></h5>
-            <h5>Barrio: <?php echo $client["neighborhood"] ?></h5>
-            <h5>Estrato: <?php echo $client["stratum_name"] ?></h5>
+            <h2 style="padding:0px;">Total a pagar:</h2>
         </div>
         <div class="col-print-6">
-        <h5>Código de factura: <strong><?php echo $charge["charge_number"] ?></strong></h5>
-        <h5>Fecha inicial: <?php echo $charge["initial_date"] ?></h5>
-        <h5>Fecha final: <?php echo $charge["final_date"] ?></h5>
-        <h5>Fecha límite de pago: <?php echo date("Y")."-".date("m")."-"."13"; ?> </h5>
-        <h2 style="padding:0px;">Total a pagar: <strong>$<?php echo $globalTotalToPay; ?></strong></h2>
+            <h2>$<?php echo $globalTotalToPay; ?></h2>
         </div>
-        <div class="col-print-6" style="margin-left:20px;">
-    <?php echo $tirilla_barcode; ?>
-        </div>
+    </div>
+    <img src="http://localhost/bulk/images/footer.png" alt="" width="300" style="margin-top:10px;" />
+    <br>
+    <div class="d-flex tirilla">
+        <br>
+        <div>
+            <div class="col-print-6">
+                <h5><?php echo $client["names"] ?></h5>
+                <h5>Documento: <?php echo $client["dni"] ?></h5>
+                <h5>Dirección: <?php echo $client["address"] ?></h5>
+                <h5>Barrio: <?php echo $client["neighborhood"] ?></h5>
+                <h5>Estrato: <?php echo $client["stratum_name"] ?></h5>
+            </div>
+            <div class="col-print-6">
+                <h5>Código de factura: <strong><?php echo $charge["charge_number"] ?></strong></h5>
+                <h5>Fecha inicial: <?php echo $charge["initial_date"] ?></h5>
+                <h5>Fecha final: <?php echo $charge["final_date"] ?></h5>
+                <h5>Fecha límite de pago: <?php echo date("Y") . "-" . date("m") . "-" . "13"; ?> </h5>
+                <h2 style="padding:0px;">Total a pagar: <strong>$<?php echo $globalTotalToPay; ?></strong></h2>
+            </div>
+            <div class="col-print-6" style="margin-left:20px;">
+                <?php echo $tirilla_barcode; ?>
+            </div>
         </div>
     </div>
 </body>
